@@ -1,8 +1,17 @@
+# Use Python base image
 FROM python:3.11
+
+# Set working directory
 WORKDIR /app
+
+# Copy project files
 COPY . /app
 
-RUN apt update -y
+# Install dependencies
+RUN apt-get update -y && pip install -r requirements.txt
 
-RUN apt-get update && pip install -r requirements.txt
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Expose Azure port
+EXPOSE 8000
+
+# Run Streamlit using the port assigned by Azure
+CMD ["bash", "-c", "streamlit run app.py --server.port=$PORT --server.address=0.0.0.0"]
