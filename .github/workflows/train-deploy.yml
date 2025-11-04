@@ -1,0 +1,69 @@
+name: Model Training Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions: 
+  contents: write
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to push changes
+      packages: write
+      actions: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Create and activate virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+
+    - name: Install dependencies
+      run: |
+        source venv/bin/activate
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements.txt
+
+    - name: Run model training
+      run: |
+        source venv/bin/activate
+        python src/model.py
+        echo "Current directory: $(pwd)"
+
+    - name: Commit and push updated model
+      run: |
+        # Configure git (essential for CI environments)
+        git config --global user.name "harshkushwaha7x"
+        git config --global user.email "harshkushwaha4151@gmail.com"
+        git add models/logistic_regression_model.pkl
+        git add artifacts/classification_report.jpeg
+        git commit -m "Model update: $(date -u +'%Y-%m-%dT%H:%M:%SZ')" || exit 0
+        git pull --rebase origin main
+        git push origin main
+
+      env:
+        # Needed for authentication
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: training-results
+        path: |
+          models/logistic_regression_model.pkl
+          artifacts/classification_report.jpeg
+          artifacts/heatmap.jpeg
+        overwrite: true
