@@ -185,7 +185,7 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 
 **Harsh Kushwaha** — Developer & Maintainer  
 - GitHub: [https://github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)  
-- LinkedIn: [https://linkedin.com/in/harshkushwaha7x](https://linkedin.com/in/harshkushwaha7x)  
+- LinkedIn: [https://linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)  
 - Email: harshkushwaha4151@gmail.com  
 
 ---
