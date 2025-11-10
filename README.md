@@ -21,7 +21,7 @@
 
 ## ✨ Summary
 
-This project aims to detect fraudulent credit card transactions using machine learning models such as Logistic Regression, Random Forest, and XGBoost. It demonstrates how data preprocessing, feature scaling, and model evaluation can be used to build a robust fraud detection system. The dataset used is highly imbalanced, and techniques like SMOTE are employed to handle class imbalance effectively.
+This project aims to detect fraudulent credit card transactions using machine learning models. After comparing 27+ models using LazyPredict (including Logistic Regression, Random Forest, XGBoost, SVC, and more), Logistic Regression was selected as the final deployed model. The dataset used is highly imbalanced (0.172% fraud rate), and RandomUnderSampler was employed to handle class imbalance in the training data while maintaining the original distribution in the test set for realistic evaluation.
 
 ---
 
@@ -144,23 +144,62 @@ docker run -e PORT=8501 -p 8501:8501 creditcard.azurecr.io/cc:latest
 
 ---
 
-## 📊 Example Output
+## 📊 Dataset Information
 
-**Model Comparison:**
+**Source:** Kaggle's Credit Card Fraud Detection Dataset  
+**Origin:** Transactions by European cardholders (September 2013)  
+**Total Transactions:** 284,807  
+**Fraudulent Transactions:** 492 (0.172%)  
+**Duration:** 2 days  
+**Features:** 28 PCA-transformed features (V1-V28) + Time + Amount
 
-| Model               | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
-|---------------------|----------|------------|---------|-----------|----------|
-| Logistic Regression | 0.95     | 0.93       | 0.90    | 0.91      | 0.97     |
-| Random Forest       | 0.98     | 0.96       | 0.95    | 0.95      | 0.99     |
-| XGBoost             | 0.99     | 0.98       | 0.97    | 0.97      | 0.99     |
+---
+
+## 📈 Model Performance
+
+### **LazyPredict Comparison (Top 10 Models)**
+
+| Model                      | Accuracy | Balanced Accuracy | ROC-AUC | F1-Score |
+|----------------------------|----------|-------------------|---------|----------|
+| SVC                        | 1.00     | 0.97              | 0.97    | 1.00     |
+| Logistic Regression        | 0.99     | 0.97              | 0.97    | 0.99     |
+| CalibratedClassifierCV     | 0.99     | 0.97              | 0.97    | 0.99     |
+| Perceptron                 | 0.98     | 0.97              | 0.97    | 0.99     |
+| ExtraTreesClassifier       | 0.98     | 0.97              | 0.97    | 0.99     |
+| RandomForestClassifier     | 0.98     | 0.97              | 0.97    | 0.99     |
+| KNeighborsClassifier       | 0.98     | 0.97              | 0.97    | 0.99     |
+| LGBMClassifier             | 0.98     | 0.97              | 0.97    | 0.99     |
+| AdaBoostClassifier         | 0.98     | 0.97              | 0.97    | 0.99     |
+| XGBClassifier              | 0.97     | 0.96              | 0.96    | 0.98     |
+
+### **Final Deployed Model: Logistic Regression**
+
+**Test Set Performance (Imbalanced - 56,962 samples):**
+
+| Class          | Precision | Recall | F1-Score | Support |
+|----------------|-----------|--------|----------|----------|
+| Non-Fraud (0)  | 1.00      | 0.96   | 0.98     | 56,864   |
+| Fraud (1)      | 0.04      | 0.93   | 0.08     | 98       |
+| **Accuracy**   |           |        | **0.96** | 56,962   |
+| **Macro Avg**  | 0.52      | 0.95   | 0.53     | 56,962   |
+| **Weighted Avg** | 1.00    | 0.96   | 0.98     | 56,962   |
+
+**Key Insights:**
+- **High Recall (93%)**: Successfully detects 93% of fraudulent transactions
+- **Low Precision (4%)**: High false positive rate due to extreme class imbalance (0.172% fraud)
+- **Overall Accuracy (96%)**: Reflects the imbalanced nature of real-world fraud detection
+- **Trade-off**: Model prioritizes catching fraud (high recall) over minimizing false alarms
 
 ---
 
 ## ✅ Testing & Quality
 
-- Tested using train/test split and k-fold cross validation.  
-- Verified against overfitting using learning curves and ROC plots.  
-- Code formatted with Black and PEP8 compliance.
+- **Train/Test Split**: 80/20 stratified split (227,845 train / 56,962 test)
+- **Data Balancing**: RandomUnderSampler applied only to training data (166 samples per class)
+- **Test Set**: Maintained original imbalanced distribution for realistic evaluation
+- **Validation**: Confusion matrix analysis and classification reports
+- **Model Comparison**: 27+ models tested using LazyPredict
+- **Deployment**: Live on Azure Web App with Docker containerization
 
 ---
 
