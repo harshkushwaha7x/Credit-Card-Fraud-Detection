@@ -1,10 +1,10 @@
 <div align="center">
 
-# 💳 Credit Card Fraud Detection 🕵️‍♀️
+# Credit Card Fraud Detection
 
 **Credit Card Fraud Detection** is a machine learning project built to identify fraudulent transactions using predictive analytics. It uses multiple ML models, feature engineering, and performance evaluation techniques to ensure reliable fraud prediction. The project is containerized with Docker and ready for cloud deployment via Azure Container Registry.
 
-• [Live Demo](https://creditcard-h3e5aaaffcajawc8.centralindia-01.azurewebsites.net/) • [Portfolio](https://portflio-3.vercel.app/) • [GitHub](https://github.com/harshkushwaha7x)
+• [Live Demo](https://creditcard-h3e5aaaffcajawc8.centralindia-01.azurewebsites.net/) • [Portfolio](https://portfolio-harsh7x.vercel.app/) • [GitHub](https://github.com/harshkushwaha7x)
 
 </div>
 
@@ -19,13 +19,13 @@
 
 ---
 
-## ✨ Summary
+## Summary
 
 This project aims to detect fraudulent credit card transactions using machine learning models. After comparing 27+ models using LazyPredict (including Logistic Regression, Random Forest, XGBoost, SVC, and more), Logistic Regression was selected as the final deployed model. The dataset used is highly imbalanced (0.172% fraud rate), and RandomUnderSampler was employed to handle class imbalance in the training data while maintaining the original distribution in the test set for realistic evaluation.
 
 ---
 
-## 📦 Highlights & Use Cases
+## Highlights & Use Cases
 
 - Real-world application of machine learning in finance and cybersecurity.  
 - Demonstrates data preprocessing, EDA, and model optimization.  
@@ -34,19 +34,19 @@ This project aims to detect fraudulent credit card transactions using machine le
 
 ---
 
-## 🚀 Features
+## Features
 
-- 📊 Exploratory Data Analysis (EDA) & visualization of transaction patterns  
-- ⚙️ Feature engineering & data balancing with RandomUnderSampler  
-- 🤖 Logistic Regression classifier  
-- 📈 Model evaluation: accuracy, precision, recall, F1-score, ROC-AUC  
-- 🧠 Fraud probability prediction for new transactions  
-- 🐳 Containerized deployment with Docker  
-- ☁️ Azure Container Registry integration for scalable cloud hosting
+- Exploratory Data Analysis (EDA) & visualization of transaction patterns  
+- Feature engineering & data balancing with RandomUnderSampler  
+- Logistic Regression classifier  
+- Model evaluation: accuracy, precision, recall, F1-score, ROC-AUC  
+- Fraud probability prediction for new transactions  
+- Containerized deployment with Docker  
+- Azure Container Registry integration for scalable cloud hosting
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 **Language:** Python  
 **Libraries:** NumPy, Pandas, Scikit-Learn, Matplotlib, Seaborn, XGBoost  
@@ -57,7 +57,7 @@ This project aims to detect fraudulent credit card transactions using machine le
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /CreditCard-Fraud-Detection
@@ -75,7 +75,7 @@ This project aims to detect fraudulent credit card transactions using machine le
 
 ---
 
-## 🛠️ Quick Start (Local)
+## Quick Start (Local)
 
 1. **Clone the repository**
 ```bash
@@ -103,14 +103,14 @@ http://localhost:8501
 
 ---
 
-## 🧭 Using the App
+## Using the App
 
 - Provide the 9 inputs (Amount, Transaction Time, Location Score, Merchant Type, Card Usage, Risk Factor, Account Age, Spending Pattern, Alert Count).
 - The app auto-fills the remaining features with default values to match the model’s expected 15-feature vector, preventing shape errors.
 
 ---
 
-## 🧪 Model Workflow
+## Model Workflow
 
 1. **Data Preprocessing**  
    - Handle missing values and scaling.  
@@ -128,7 +128,7 @@ http://localhost:8501
 
 ---
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Build & Push Docker Image
 ```bash
@@ -144,7 +144,7 @@ docker run -e PORT=8501 -p 8501:8501 creditcard.azurecr.io/cc:latest
 
 ---
 
-## 📊 Dataset Information
+## Dataset Information
 
 **Source:** Kaggle's Credit Card Fraud Detection Dataset  
 **Origin:** Transactions by European cardholders (September 2013)  
@@ -155,7 +155,7 @@ docker run -e PORT=8501 -p 8501:8501 creditcard.azurecr.io/cc:latest
 
 ---
 
-## 📈 Model Performance
+## Model Performance
 
 ### **LazyPredict Comparison (Top 10 Models)**
 
@@ -192,7 +192,7 @@ docker run -e PORT=8501 -p 8501:8501 creditcard.azurecr.io/cc:latest
 
 ---
 
-## ✅ Testing & Quality
+## Testing & Quality
 
 - **Train/Test Split**: 80/20 stratified split (227,845 train / 56,962 test)
 - **Data Balancing**: RandomUnderSampler applied only to training data (166 samples per class)
@@ -203,7 +203,7 @@ docker run -e PORT=8501 -p 8501:8501 creditcard.azurecr.io/cc:latest
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome!
 
@@ -214,16 +214,16 @@ Contributions are welcome!
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 
 ---
 
-## 📬 Contact
+## Contact
 
 **Harsh Kushwaha** — Developer & Maintainer 
-- Portfolio: [https://portflio-3.vercel.app/](https://portflio-3.vercel.app/) 
+- Portfolio: [https://portfolio-harsh7x.vercel.app/](https://portfolio-harsh7x.vercel.app/) 
 - GitHub: [https://github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)  
 - LinkedIn: [https://linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)  
 - Email: harshkushwaha4151@gmail.com  
@@ -231,5 +231,5 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 ---
 
 <div align="center">
-Made by <b>Harsh Kushwaha</b> 💻
+Made by **Harsh Kushwaha**
 </div>
