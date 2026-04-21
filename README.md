@@ -4,7 +4,7 @@
 
 **Credit Card Fraud Detection** is a machine learning project built to identify fraudulent transactions using predictive analytics. It uses multiple ML models, feature engineering, and performance evaluation techniques to ensure reliable fraud prediction. The project is containerized with Docker and ready for cloud deployment via Azure Container Registry.
 
-• [Live Demo](https://creditcard-h3e5aaaffcajawc8.centralindia-01.azurewebsites.net/) • [Portfolio](https://portfolio-harsh7x.vercel.app/) • [GitHub](https://github.com/harshkushwaha7x)
+• [Portfolio](https://portfolio-harsh7x.vercel.app/) • [GitHub](https://github.com/harshkushwaha7x)
 
 </div>
 
